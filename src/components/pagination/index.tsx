@@ -20,6 +20,7 @@ const CommonPagination: FC<PaginationProps> = ({
         total={totalItems}
         pageSize={pageSize}
         showSizeChanger={false}
+        showLessItems
       />
     </Container>
   )
