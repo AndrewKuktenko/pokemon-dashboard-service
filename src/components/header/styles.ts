@@ -8,6 +8,8 @@ export const Container = styled.div`
   padding: 20px ${CONSTANTS.MAIN_CONTAINER_SIDES_PADDING}px;
   flex-direction: row;
   align-items: flex-start;
+  justify-content: space-between;
+  align-items: center;
 
   @media (max-width: 425px) {
     padding: 20px ${CONSTANTS.MAIN_CONTAINER_SIDES_PADDING_MOBILE}px;
@@ -15,5 +17,10 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h2`
+  cursor: pointer;
+`;
+
+export const SignOutLabel = styled.span`
+  color: ${CONSTANTS.COLORS.L_BLUE_B};
   cursor: pointer;
 `;

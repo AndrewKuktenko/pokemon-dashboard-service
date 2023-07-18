@@ -6,7 +6,7 @@ const PasswordInput: FC<any> = ({ placeholder = 'Password', register, required, 
     return (
         <Container>
             <Icon/>
-            <Input {...register('password', { required })} placeholder={placeholder} {...props} type="password" name="password" />
+            <Input autoComplete='off' {...register('password', { required, minLength: 8, maxLength: 16 })} placeholder={placeholder} {...props} type="password" name="password" />
         </Container>
     )
 }

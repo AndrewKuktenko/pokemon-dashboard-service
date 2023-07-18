@@ -4,7 +4,6 @@ import { AiOutlineLock } from 'react-icons/ai';
 export const Container = styled.div`
   position: relative;
   width: 100%;
-  margin-top: 15px;
 `;
 
 export const Input = styled.input`

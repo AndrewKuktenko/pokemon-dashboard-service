@@ -5,7 +5,7 @@ const EmailInput: FC<any> = ({ onChange, value, register, required, ...props }) 
   return (
       <Container>
           <Icon/>
-          <Input {...props} {...register('email', { required })} placeholder="Email" onChange={onChange} value={value} name="email" />
+          <Input autoComplete='off'  {...register('email', { required, pattern: /^\S+@\S+$/i })} {...props} placeholder="Email" onChange={onChange} value={value} name="email" />
       </Container>
   )
 }

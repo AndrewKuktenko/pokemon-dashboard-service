@@ -1,10 +1,11 @@
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 import { Card, Meta, CardImage } from './styles';
+import { CardItemProps } from 'ts/types/card.item.props.d';
 import * as CONSTANTS from 'ts/enums/styles';
-import testImg from 'assets/1.png';
+import getPokemonIdFromUrl from 'helpers/getPokemonIdFromUrl';
 
-const CardItem: FC = ({ name, ...props }) => {
-  const generateColor = () => {
+const CardItem: FC<CardItemProps> = ({ name, url, ...props }) => {
+  const metaColor = useMemo(() => {
     const colors = [
       CONSTANTS.COLORS.L_BLUE,
       CONSTANTS.COLORS.L_GREEN,
@@ -15,15 +16,15 @@ const CardItem: FC = ({ name, ...props }) => {
     ]
 
     return colors[Math.floor(Math.random()*colors.length)]
-  };
+  }, []);
 
   return (
     <Card
       {...props}
       hoverable
-      cover={<CardImage alt="example" src={testImg} />}
+      cover={<CardImage alt="example" src={require(`assets/${getPokemonIdFromUrl(url)}.png`)} />}
     >
-      <Meta titlecolor={generateColor()} title="www.instagram.com" />
+      <Meta titlecolor={metaColor} title={name} />
     </Card>
   )
 };
