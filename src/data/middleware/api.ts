@@ -1,11 +1,12 @@
 import { Middleware } from 'redux';
 import { triggerLoadingAction } from 'data/actions/loading';
+import { Dispatch } from 'react';
 import { signOut } from 'data/actions/user';
 import { IReduxAction } from 'ts/interfaces/redux/redux.action';
 
 import axios, { AxiosResponse } from 'axios';
 
-const apiMiddleware = (): Middleware => () => (next: any) => async (action: IReduxAction) => {
+const apiMiddleware = (): Middleware => () => (next: Dispatch<any>) => async (action: IReduxAction) => {
   if (!action) return false;
   
   const host = action?.payload?.host;
