@@ -1,4 +1,4 @@
-# Getting Started with React App for Pokemon service
+# React App for Pokemon service
 
 ## Available Scripts
 
