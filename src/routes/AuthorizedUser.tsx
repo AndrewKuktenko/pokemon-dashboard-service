@@ -9,7 +9,7 @@ const AuthorizedUser: FC = () => {
     <MainLayout>
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/:name" element={<PreviewPage/>} />
+        <Route path="/pokemon/:name" element={<PreviewPage/>} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </MainLayout>

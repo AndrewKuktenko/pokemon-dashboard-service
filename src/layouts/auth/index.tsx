@@ -1,10 +1,11 @@
 import { FC } from 'react';
-import { Container, Form } from './styles';
+import { Container, Form, Logo } from './styles';
 
 const AuthLayout: FC<any> = ({ children }) => {
   return (
     <Container>
-      <Form autoComplete='off'>
+      <Logo>Pokedex</Logo>
+      <Form autoComplete={'off'}>
         {children}
       </Form>
     </Container>

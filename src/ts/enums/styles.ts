@@ -6,7 +6,9 @@ export const MAIN_CONTAINER_MAX_WIDTH = 1600;
 export enum COLORS {
   WHITE = '#FFF',
   BLACK = '#000',
+  RED = '#D11001',
   L_BLUE_A = '#3d79e0',
+  L_BLUE_B = '#5868f7',
   L_GREEN ='#DFF9F2',
   L_YELLOW = '#DFE7F9',
   L_PURPLE = '#F9DFF7',
