@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import queryString from 'query-string';
+import { message } from 'antd';
 import { PaginationQuery } from 'ts/types/pagination.query.d';
 import { EPaginationDefault } from 'ts/enums/pagination.default';
 import { useAppDispatch, useAppSelector } from 'data/store';
@@ -22,10 +23,14 @@ const MainPage: FC = () => {
 
   const parsedLocation: PaginationQuery = queryString.parse(location.search);  
   const [pageNumber, setPageNumber] = useState(parseInt(parsedLocation.page, 10) || EPaginationDefault.PAGE_NUMBER);
-  const [pageSize] = useState(parseInt(parsedLocation.size, 10) || EPaginationDefault.PAGE_SIZE);
+  const [pageSize, setPageSize] = useState(parseInt(parsedLocation.size, 10) || EPaginationDefault.PAGE_SIZE);
 
   useEffect(() => {
-    dispatch(findPokemons({ pageNumber, pageSize }));
+    dispatch(findPokemons({ pageNumber, pageSize }, (msg: string) => {
+      message.open({ type: 'error', content: msg });
+      setPageNumber(EPaginationDefault.PAGE_NUMBER);
+      setPageSize(EPaginationDefault.PAGE_SIZE);
+    }));
     navigate({ pathname: '/', search: `?page=${pageNumber}&size=${pageSize}` });
   }, [dispatch, navigate, pageNumber, pageSize]);
 

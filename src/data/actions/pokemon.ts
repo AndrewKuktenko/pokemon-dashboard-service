@@ -3,12 +3,16 @@ import { EReduxTypes } from 'ts/enums/redux.types';
 import { IReduxAction } from 'ts/interfaces/redux/redux.action';
 import { IPagination } from 'ts/interfaces/common/pagination';
 
-export const findPokemons = (pagination: IPagination) => (dispatch: Dispatch): void => {
+export const findPokemons = (pagination: IPagination, onError: (message: string) => void = () => {}) => (dispatch: Dispatch): void => {
   const action: IReduxAction = {
     type: EReduxTypes.FIND_POKEMONS,
     payload: {
       method: 'GET',
       endpoint: `pokemon?pageSize=${pagination.pageSize}&pageNumber=${pagination.pageNumber}`,
+    },
+    onFailed: (error: any) => {
+      const errorMessage = error?.response?.data?.message || 'Find pokemons error';
+      onError(errorMessage);
     },
     components: ['find_pokemons']
   };
