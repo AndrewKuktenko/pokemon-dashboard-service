@@ -16,7 +16,7 @@ const userReducer = (state = initialState, action: IReduxAction): IUserState | {
     case EReduxTypes.SIGN_UP: {
       const accessToken = action?.payload?.accessToken;
       localStorage.setItem('ACCESS_TOKEN', accessToken);
-      const tokenPayload: any = jwt_decode(accessToken);
+      const tokenPayload: string = jwt_decode(accessToken);
 
       return {
           ...state,
@@ -30,7 +30,7 @@ const userReducer = (state = initialState, action: IReduxAction): IUserState | {
         localStorage.setItem('ACCESS_TOKEN', accessToken);
         localStorage.setItem('REFRESH_TOKEN', refreshToken);
 
-        const tokenPayload: any = jwt_decode(accessToken);
+        const tokenPayload: string = jwt_decode(accessToken);
         
         return {
           ...state,

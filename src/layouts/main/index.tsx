@@ -1,8 +1,8 @@
-import { FC } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import Header from 'components/header';
 import { Container, ContentContainer, MainWrapper } from './styles';
 
-const MainLayout: FC<any> = ({ children }) => {
+const MainLayout: FC<PropsWithChildren<{}>> = ({ children }) => {
   return (
     <Container>
       <MainWrapper>
