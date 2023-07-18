@@ -3,6 +3,7 @@ import { Card, Meta, CardImage } from './styles';
 import { CardItemProps } from 'ts/types/card.item.props.d';
 import * as CONSTANTS from 'ts/enums/styles';
 import getPokemonIdFromUrl from 'helpers/getPokemonIdFromUrl';
+import toUpperCaseFirst from 'helpers/toUpperCaseFirst';
 
 const CardItem: FC<CardItemProps> = ({ name, url, ...props }) => {
   const metaColor = useMemo(() => {
@@ -24,7 +25,7 @@ const CardItem: FC<CardItemProps> = ({ name, url, ...props }) => {
       hoverable
       cover={<CardImage alt="example" src={require(`assets/${getPokemonIdFromUrl(url)}.png`)} />}
     >
-      <Meta titlecolor={metaColor} title={name} />
+      <Meta titlecolor={metaColor} title={toUpperCaseFirst(name)} />
     </Card>
   )
 };

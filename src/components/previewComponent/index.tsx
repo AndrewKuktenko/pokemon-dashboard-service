@@ -27,7 +27,7 @@ const PreviewComponent: FC = () => {
       </ImageContainer>
       <DescriptionContainer>
         <Title>
-          {pokemon.name}
+          {toUpperCaseFirst(pokemon.name)}
         </Title>
         <PropertyItem>
           <span>Types</span>
