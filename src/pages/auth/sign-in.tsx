@@ -34,14 +34,14 @@ const SingInPage: FC = () => {
       {errors.email?.type === "pattern" && (
         <ErrorMessage>Invalid email</ErrorMessage>
       )}
-      <EmailInput register={register} aria-invalid={errors.email ? "true" : "false"} required/>
+      <EmailInput register={register} required/>
       {errors.password?.type === "required" && (
         <ErrorMessage>Password is required</ErrorMessage>
       )}
       {(errors.password?.type === 'maxLength' || errors.password?.type === 'minLength') && (
         <ErrorMessage>Password length must be higher than 8 and lower than 16</ErrorMessage>
       )}
-      <PasswordInput register={register} aria-invalid={errors.password ? "true" : "false"} required/>
+      <PasswordInput register={register} required/>
       <Button loading={loading} disabled={loading} type="primary" size="large" onClick={handleSubmit(onSubmit)}>Submit</Button>
       <CreateAccountLabel><Link to="/sign-up">Do not have one? Create account!</Link></CreateAccountLabel>
     </AuthLayout>
